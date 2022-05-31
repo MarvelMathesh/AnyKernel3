@@ -49,6 +49,8 @@ __supported.patchlevels=__ will match against ro.build.version.security_patch fr
 
 `ramdisk_compression=auto` allows automatically repacking the ramdisk with the format detected during unpack. Changing `auto` to `gz`, `lzo`, `lzma`, `xz`, `bz2`, `lz4`, or `lz4-l` (for lz4 legacy) instead forces the repack as that format, and using `cpio` or `none` will (attempt to) force the repack as uncompressed.
 
+`patch_vbmeta_flag=auto` allows automatically using the default AVBv2 vbmeta flag on repack, and use the Magisk configuration Canary 23016+. Set to `0` forces keeping whatever is in the original AVBv2 flags, and set to `1` forces patching the flag (only necessary on few devices).
+
 `customdd="<arguments>"` may be added to allow specifying additional dd parameters for devices that need to hack their kernel directly into a large partition like mmcblk0, or force use of dd for flashing.
 
 `slot_select=active|inactive` may be added to allow specifying the target slot. If omitted the default remains `active`.
@@ -117,7 +119,7 @@ You may also use _ui_print "\<text\>"_ to write messages back to the recovery du
 
 ## // Binary Inclusion ##
 
-The AK3 repo includes current ARM builds of `magiskboot`, `magiskpolicy` and `busybox` by default to keep the basic package small. Builds for other architectures and optional binaries (see below) are available from the latest Magisk zip, or my latest AIK-mobile and FlashIt packages, respectively, here:
+The AK3 repo includes current ARM builds of `magiskboot`, `magiskpolicy`, `lptools_static` and `busybox` by default to keep the basic package small. Builds for other architectures and optional binaries (see below) are available from the latest Magisk zip, or my latest AIK-mobile and FlashIt packages, respectively, here:
 
 https://forum.xda-developers.com/t/tool-android-image-kitchen-unpack-repack-kernel-ramdisk-win-android-linux-mac.2073775/ (Android Image Kitchen thread)  
 https://forum.xda-developers.com/t/tools-zips-scripts-osm0sis-odds-and-ends-multiple-devices-platforms.2239421/ (Odds and Ends thread)
